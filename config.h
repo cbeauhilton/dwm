@@ -1,5 +1,8 @@
 /* See LICENSE file for copyright and license details. */
 
+/* constants */
+#define TERMINAL "kitty"
+
 /* appearance */
 static const unsigned int borderpx  = 1;       /*[> border pixel of windows <]*/
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -10,7 +13,7 @@ static const unsigned int gappov    = 30;       /* vert outer gap between window
 static const int smartgaps          = 1;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 0;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "IBM Plex Mono:pixelsize=12:antialias=true:autohint=true", "JoyPixels:pixelsize=10:antialias=true:autohint=true"  };
+static const char *fonts[]          = { "IBM Plex Mono:pixelsize=12:antialias=true:autohint=true", "Blex Mono:pixelsize=12:antialias=true:autohint=true", "JoyPixels:pixelsize=10:antialias=true:autohint=true"  };
 static char dmenufont[]             = "IBM Plex Mono:pixelsize=12:antialias=true:autohint=true";
 static char normbgcolor[]           = "#181818";
 static char normbordercolor[]       = "#181818";
@@ -78,7 +81,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]  = { "kitty", NULL };
+static const char *termcmd[]  = { TERMINAL, NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
 
@@ -110,14 +113,14 @@ static Key keys[] = {
 	/* { MODKEY|ShiftMask,		XK_BackSpace,	spawn,		SHCMD("") }, */
 
 	{ MODKEY,			XK_Tab,		view,		{0} },
-	/* { MODKEY|ShiftMask,		XK_Tab,		spawn,		SHCMD("") }, */
+	{ MODKEY|ShiftMask,		XK_Tab,		spawn,		SHCMD("dmenunetworks") },
 	{ MODKEY,			XK_q,		killclient,	{0} },
 	/* { MODKEY|ShiftMask,		XK_q,		spawn,		SHCMD("") }, */
 	{ MODKEY,			XK_w,		spawn,		SHCMD("$BROWSER") },
-	{ MODKEY|ShiftMask,		XK_w,		spawn,		SHCMD("$TERMINAL -e sudo nmtui") },
+	/* { MODKEY|ShiftMask,		XK_w,		spawn,		SHCMD(TERMINAL " -e dmenunetworks") }, */
 	{ MODKEY,			XK_e,		spawn,		SHCMD("$TERMINAL -e neomutt ; pkill -RTMIN+12 dwmblocks; rmdir ~/.abook") },
-	{ MODKEY|ShiftMask,		XK_e,		spawn,		SHCMD("tutorialvids") },
-	{ MODKEY,			XK_r,		spawn,		SHCMD("$TERMINAL -e nnn -e -P p") },
+	{ MODKEY|ShiftMask,		XK_e,		spawn,		SHCMD("$TERMINAL -e vmware-view -u $(pass virtual.vumc.org | sed -n 's/login:\\s//p') -p $(pass virtual.vumc.org)") },
+	{ MODKEY,			XK_r,		spawn,		SHCMD(TERMINAL " -e lf") },
 	/* { MODKEY|ShiftMask,		XK_r,		quit,		{1} }, */
 	{ MODKEY,			XK_t,		setlayout,	{.v = &layouts[0]} },
 	{ MODKEY|ShiftMask,		XK_t,		setlayout,	{.v = &layouts[1]} },
@@ -166,12 +169,12 @@ static Key keys[] = {
 	/* { MODKEY|ShiftMask,		XK_x,		spawn,		SHCMD("") }, */
 	/* { MODKEY,			XK_c,		spawn,		SHCMD("$TERMINAL -e bc -l") }, */
 	{ MODKEY|ShiftMask,		XK_c,		spawn,		SHCMD("mpv --no-cache --no-osc --no-input-default-bindings --input-conf=/dev/null --title=webcam $(ls /dev/video[0,2,4,6,8] | tail -n 1)") },
-	{ MODKEY,			XK_v,		spawn,		SHCMD("$TERMINAL -e $EDITOR $VIMWIKI_HOME") },
-	{ MODKEY|ShiftMask,		XK_v,		spawn,		SHCMD("{ killall xcompmgr || setsid xcompmgr & } ; xwallpaper --zoom ~/.config/wall.png") },
+	{ MODKEY,			XK_v,		spawn,		SHCMD("vmware-view") },
+	{ MODKEY|ShiftMask,		XK_v,		spawn,		SHCMD("$TERMINAL -e $EDITOR $VIMWIKI_HOME") },
 	{ MODKEY,			XK_b,		togglebar,	{0} },
 	/* { MODKEY|ShiftMask,		XK_b,		spawn,		SHCMD("") }, */
-	{ MODKEY,			XK_n,		spawn,		SHCMD("$TERMINAL -e nnn -e -P p") },
-	{ MODKEY|ShiftMask,		XK_n,		spawn,		SHCMD("$TERMINAL -e newsboat; pkill -RTMIN+6 dwmblocks") },
+	{ MODKEY,			XK_n,		spawn,		SHCMD(TERMINAL " -e lf") },
+	{ MODKEY|ShiftMask,		XK_n,		spawn,		SHCMD(TERMINAL " -e newsboat; pkill -RTMIN+6 dwmblocks") },
 	/* { MODKEY|ShiftMask,		XK_n,		spawn,		SHCMD("") }, */
 	{ MODKEY,			XK_m,		spawn,		SHCMD("$TERMINAL -e ncmpcpp") },
 	{ MODKEY|ShiftMask,		XK_m,		spawn,		SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") },
@@ -236,8 +239,8 @@ static Key keys[] = {
 	/* { 0, XF86XK_TouchpadToggle,	spawn,		SHCMD("(synclient | grep 'TouchpadOff.*1' && synclient TouchpadOff=0) || synclient TouchpadOff=1") }, */
 	/* { 0, XF86XK_TouchpadOff,	spawn,		SHCMD("synclient TouchpadOff=1") }, */
 	/* { 0, XF86XK_TouchpadOn,		spawn,		SHCMD("synclient TouchpadOff=0") }, */
-	/* { 0, XF86XK_MonBrightnessUp,	spawn,		SHCMD("xbacklight -inc 15") }, */
-	/* { 0, XF86XK_MonBrightnessDown,	spawn,		SHCMD("xbacklight -dec 15") }, */
+	{ 0, XF86XK_MonBrightnessUp,	spawn,		SHCMD("brillo -e -A 10") },
+	{ 0, XF86XK_MonBrightnessDown,	spawn,		SHCMD("brillo -e -U 10") },
 };
 
 /* button definitions */
@@ -262,3 +265,4 @@ static Button buttons[] = {
 	{ ClkTagBar,		0,		Button4,	shiftview,	{.i = -1} },
 	{ ClkTagBar,		0,		Button5,	shiftview,	{.i = 1} },
 };
+
