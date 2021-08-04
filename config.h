@@ -119,7 +119,7 @@ static Key keys[] = {
 	{ MODKEY,			XK_w,		spawn,		SHCMD("$BROWSER") },
 	/* { MODKEY|ShiftMask,		XK_w,		spawn,		SHCMD(TERMINAL " -e dmenunetworks") }, */
 	{ MODKEY,			XK_e,		spawn,		SHCMD("$TERMINAL -e neomutt ; pkill -RTMIN+12 dwmblocks; rmdir ~/.abook") },
-	{ MODKEY|ShiftMask,		XK_e,		spawn,		SHCMD("$TERMINAL -e vmware-view -u $(pass virtual.vumc.org | sed -n 's/login:\\s//p') -p $(pass virtual.vumc.org)") },
+	{ MODKEY|ShiftMask,		XK_e,		spawn,		SHCMD("$TERMINAL -e vmware-view --nonInteractive --serverURL='virtual.vumc.org' --domainName='vanderbilt' --desktopName='eStar' --desktopSize='large' -u $(pass virtual.vumc.org | sed -n 's/login:\\s//p') -p $(pass virtual.vumc.org)") },
 	{ MODKEY,			XK_r,		spawn,		SHCMD(TERMINAL " -e lf") },
 	/* { MODKEY|ShiftMask,		XK_r,		quit,		{1} }, */
 	{ MODKEY,			XK_t,		setlayout,	{.v = &layouts[0]} },
