@@ -36,7 +36,6 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   isterminal noswallow monitor */
-	{ "Gimp",     NULL,       NULL,       1 << 8,       0,           0,         0,        -1 },
 	{ "kitty",    NULL,       NULL,       0,            0,           1,         0,        -1 },
 };
 
@@ -116,7 +115,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_Tab,		spawn,		SHCMD("dmenunetworks") },
 	{ MODKEY,			XK_q,		killclient,	{0} },
 	/* { MODKEY|ShiftMask,		XK_q,		spawn,		SHCMD("") }, */
-	{ MODKEY,			XK_w,		spawn,		SHCMD("$BROWSER") },
+	/* { MODKEY,			XK_w,		spawn,		SHCMD("$BROWSER") }, */
+	{ MODKEY,			XK_w,		spawn,		SHCMD("$TERMINAL -e google-chrome-stable --force-dark-mode --enable-features=WebUIDarkMode") },
 	/* { MODKEY|ShiftMask,		XK_w,		spawn,		SHCMD(TERMINAL " -e dmenunetworks") }, */
 	{ MODKEY,			XK_e,		spawn,		SHCMD("$TERMINAL -e neomutt ; pkill -RTMIN+12 dwmblocks; rmdir ~/.abook") },
 	{ MODKEY|ShiftMask,		XK_e,		spawn,		SHCMD("$TERMINAL -e vmware-view --nonInteractive --serverURL='virtual.vumc.org' --domainName='vanderbilt' --desktopName='eStar' --desktopSize='large' -u $(pass virtual.vumc.org | sed -n 's/login:\\s//p') -p $(pass virtual.vumc.org)") },

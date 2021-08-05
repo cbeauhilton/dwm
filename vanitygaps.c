@@ -1,12 +1,12 @@
 /* Key binding functions */
-static void defaultgaps(const Arg *arg);
+__attribute__((unused)) static void defaultgaps(const Arg *arg);
+__attribute__((unused)) static void incrigaps(const Arg *arg);
+__attribute__((unused)) static void incrogaps(const Arg *arg);
+__attribute__((unused)) static void incrohgaps(const Arg *arg);
+__attribute__((unused)) static void incrovgaps(const Arg *arg);
+__attribute__((unused)) static void incrihgaps(const Arg *arg);
+__attribute__((unused)) static void incrivgaps(const Arg *arg);
 static void incrgaps(const Arg *arg);
-static void incrigaps(const Arg *arg);
-static void incrogaps(const Arg *arg);
-static void incrohgaps(const Arg *arg);
-__attribue__((unused)) static void incrovgaps(const Arg *arg);
-static void incrihgaps(const Arg *arg);
-static void incrivgaps(const Arg *arg);
 static void togglegaps(const Arg *arg);
 
 /* Layouts */
