@@ -24,7 +24,7 @@ By \f(CWMod\fP, I mean the Super Key, usually known as "the Windows Key."
 .PP
 FAQs are at the end of this document.
 .HEADING 1 "Welcome!"
-.HEADING 2 "Basic goals and principles of this system:"
+.HEADING 2 "Basic goals and principles"
 .LI
 .ITEM
 \fBNaturalness\fP \(en
@@ -42,7 +42,7 @@ All terminal programs (and other programs) use vim keys when possible.
 Your hands never need leave the home row or thereabout.
 .ITEM
 \fBDecentralization\fP \(en
-This system is a web of small, modifiable and replaceable programs that users can easily customize.
+This system is a web of small, modifiable, and replaceable programs that users can easily customize.
 .LIST OFF
 .HEADING 2 "General keyboard changes"
 .LI
@@ -67,18 +67,7 @@ This setting can be changed if you don't like it by deleting or commenting out t
 .HEADING 2 "The Status Bar"
 .PP
 To the left, you'll see the numbers of your current workspace/tag(s).
-On the right, you'll see various system status notifiers, the date, volume, even music and local weather if possible, etc.
-Each module on the right of the status bar is a script located in \f(CW~/.local/bin/statusbar/\fP.
-You can see what they do and modify them from there.
-I'm sure you can figure it out.
-You can also right click on the module to see what it does.
-.PP
-The program dwmblocks is what is run to generate the statusbar from those scripts.
-You can edit its config/source code in \f(CW~/.local/src/dwmblocks/\fP to tell it what scripts/commands you want it to display.
-.HEADING 2 "Deeper Tutorials"
-.PP
-Press \f(CWmod+shift+e\fP at any time to get a menu of programs to watch videos about streaming directly from YouTube.
-You can also check the config files for programs which detail a lot of the specific bindings.
+On the right, you'll see various system status notifiers.
 .HEADING 1 "Key Bindings"
 .PP
 The window manager dwm abstractly orders all of your windows into a stack from most important to least based on when you last manipulated it.
