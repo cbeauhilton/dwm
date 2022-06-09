@@ -286,27 +286,3 @@ By default, mpd, the music daemon assumes that \f(CW~/Music\fP is your music dir
 This can be changed in \f(CW~/.config/mpd/mpd.conf\fP.
 When you add music to your music folder, you may have to run \f(CWmpc up\fP in the terminal to update the database.
 mpd is controlled by ncmpcpp, which is accessible by \f(CWMod+m\fP.
-.HEADING 2 "How do I update LARBS?"
-.PP
-LARBS is deployed as a git repository in your home directory.
-You can use it as such to fetch, diff and merge changes from the remote repository.
-If you don't want to do that or don't know how to use git, you can actually just rerun the script (as root) and reinstall LARBS and it will automatically update an existing install if you select the same username.
-This will overwrite the original config files though, including changes you made for them, but this is an easier brute force approach that will also install any new dependencies.
-.HEADING 1 "Contact"
-.LI
-.ITEM
-.PDF_WWW_LINK "mailto:luke@lukesmith.xyz" "luke@lukesmith.xyz"
-\(en For questions!
-.ITEM
-.PDF_WWW_LINK "http://lukesmith.xyz" "https://lukesmith.xyz"
-\(en For stalking!
-.ITEM
-.PDF_WWW_LINK "https://lukesmith.xyz/donate" "https://lukesmith.xyz/donate"
-\(en To incentivize more development of LARBS!
-.ITEM
-.PDF_WWW_LINK "https://github.com/LukeSmithxyz" "My Github Page"
-\(en For the code behind it!
-.ITEM
-.PDF_WWW_LINK "http://lukesmith.xyz/rss.xml" "RSS"
-\(en For updates!
-.LIST OFF
