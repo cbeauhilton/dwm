@@ -152,7 +152,7 @@ static Key keys[] = {
            "--desktopName='eStar' --desktopSize='large' -u $(pass "
            "virtual.vumc.org | sed -n 's/login:\\s//p') -p $(pass "
            "virtual.vumc.org)")},
-    {MODKEY, XK_r, spawn, SHCMD(TERMINAL " -e lf")},
+    {MODKEY, XK_r, spawn, SHCMD(TERMINAL " -e lfrun")},
     /* { MODKEY|ShiftMask,		XK_r,		quit,		{1} },
      */
     {MODKEY, XK_t, setlayout, {.v = &layouts[0]}},
@@ -236,7 +236,7 @@ static Key keys[] = {
     /* { MODKEY|ShiftMask,		XK_b,		spawn,		SHCMD("")
      * },
      */
-    {MODKEY, XK_n, spawn, SHCMD(TERMINAL " -e lf")},
+    {MODKEY, XK_n, spawn, SHCMD(TERMINAL " -e lfrun")},
     {MODKEY | ShiftMask, XK_n, spawn,
      SHCMD(TERMINAL " -e newsboat; pkill -RTMIN+6 dwmblocks")},
     /* { MODKEY|ShiftMask,		XK_n,		spawn,		SHCMD("")
