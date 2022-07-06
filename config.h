@@ -45,6 +45,7 @@ static const Rule rules[] = {
     /*    class     instance    title       tags  mask     isfloating isterminal
        noswallow monitor */
     {"kitty", NULL, NULL, 0, 0, 1, 0, -1},
+    {"Firefox", NULL, NULL, 0, 0, 0, 1, -1},
 };
 
 /* layout(s) */
@@ -111,7 +112,8 @@ static Key keys[] = {
     /* modifier                     key        function        argument */
 
     STACKKEYS(MODKEY, focus) STACKKEYS(MODKEY | ShiftMask, push)
-    /* { MODKEY|ShiftMask,		      XK_Escape,	spawn,	       SHCMD("")
+    /* { MODKEY|ShiftMask,		      XK_Escape,	spawn,
+     * SHCMD("")
      * },
      */
     {MODKEY, XK_grave, spawn, SHCMD("dmenuunicode")},
@@ -234,8 +236,8 @@ static Key keys[] = {
     /* { MODKEY|ShiftMask,		XK_x,		spawn, SHCMD("")
      * },
      */
-    /* { MODKEY,			XK_c,		spawn,		SHCMD("$TERMINAL -e
-     * bc -l")
+    /* { MODKEY,			XK_c,		spawn,
+     * SHCMD("$TERMINAL -e bc -l")
      * },
      */
     {MODKEY | ShiftMask, XK_c, spawn,
