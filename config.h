@@ -157,11 +157,12 @@ static Key keys[] = {
     {MODKEY, XK_e, spawn,
      SHCMD("$TERMINAL -e neomutt ; pkill -RTMIN+12 dwmblocks; rmdir ~/.abook")},
     {MODKEY | ShiftMask, XK_e, spawn,
-     SHCMD("$TERMINAL -e vmware-view --nonInteractive "
-           "--serverURL='virtual.vumc.org' --domainName='vanderbilt' "
-           "--desktopName='eStar' --desktopSize='large' -u $(pass "
-           "virtual.vumc.org | sed -n 's/login:\\s//p') -p $(pass "
-           "virtual.vumc.org)")},
+     SHCMD("$TERMINAL -e google-chrome-stable "
+            "--start-fullscreen "
+            "--incognito "
+            "--new-window "
+            "https://virtual.vumc.org/portal/webclient/index.html"
+           )},
     {MODKEY, XK_r, spawn, SHCMD(TERMINAL " -e lfrun")},
     /* { MODKEY|ShiftMask,		XK_r,		quit,		{1} },
      */
