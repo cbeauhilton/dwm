@@ -150,8 +150,7 @@ static Key keys[] = {
      * },
      */
     {MODKEY, XK_w, spawn,
-     SHCMD("$TERMINAL -e google-chrome-stable --force-dark-mode "
-           "--enable-features=WebUIDarkMode")},
+     SHCMD("$TERMINAL -e vivaldi-stable")},
     /* { MODKEY|ShiftMask,		XK_w,		spawn,
        SHCMD(TERMINAL " -e dmenunetworks") }, */
     {MODKEY, XK_e, spawn,
